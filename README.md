@@ -1,178 +1,687 @@
 <div align="center">
-  <img src="public/logo.png" width="144" height="144" alt="Terax" />
-  <h1>Terax</h1>
+  <img src="public/logo.png" width="144" height="144" alt="ForgePilot" />
 
-  <p><strong>Lightweight Terminal-first AI-native dev workspace.</strong></p>
+  <h1>ForgePilot</h1>
+
+  <p><strong>AI-powered engineering workspace for building, debugging, and shipping software.</strong></p>
+
   <p>
-    <a href="https://terax.app">Website</a>
+    <a href="https://forgepilot.dev">Website</a>
     ·
-    <a href="https://terax.app/docs">Docs</a>
+    <a href="https://forgepilot.dev/docs">Documentation</a>
     ·
-    <a href="https://github.com/crynta/Terax-website">Website's source code</a>
+    <a href="https://github.com/your-org/forgepilot">Repository</a>
   </p>
 
   <p>
-    <img src="https://img.shields.io/github/v/release/crynta/terax-ai?label=version&color=blue" alt="version" />
-    <img src="https://img.shields.io/github/downloads/crynta/terax-ai/total?label=downloads&color=blue" alt="downloads" />
-    <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey" alt="platform" />
-    <a href="https://discord.gg/tyveTUyEp7"><img src="https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white" alt="Discord" /></a>
-    <a href="https://www.youtube.com/@crynta"><img src="https://img.shields.io/badge/Youtube-FF0000?logo=youtube&logoColor=white" alt="YouTube" /></a>
+    <img src="https://img.shields.io/badge/version-0.1.0-blue" alt="version" />
+    <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="platform" />
+    <img src="https://img.shields.io/badge/AI-local%20%26%20cloud-purple" alt="AI" />
+    <img src="https://img.shields.io/badge/license-Apache--2.0-green" alt="license" />
   </p>
 </div>
 
-<p align="center">
-  <a href="docs/readme/README.zh-CN.md">简体中文</a> |
-  <a href="docs/readme/README.es.md">Español</a> |
-  <a href="docs/readme/README.de.md">Deutsch</a> |
-  <a href="docs/readme/README.fr.md">Français</a> |
-  <a href="docs/readme/README.ja.md">日本語</a> |
-  <a href="docs/readme/README.ko.md">한국어</a> |
-  <a href="docs/readme/README.pt-BR.md">Português</a> |
-  <a href="docs/readme/README.pl.md">Polski</a> |
-  <a href="docs/readme/README.ru.md">Русский</a> |
-  <a href="docs/readme/README.id.md">Bahasa Indonesia</a> |
-  <a href="docs/readme/README.hi.md">हिन्दी</a>
-</p>
+---
+
+## What is ForgePilot?
+
+**ForgePilot** is a native AI-assisted development workspace designed to bring the most important parts of the software development workflow into one place.
+
+Instead of switching constantly between a terminal, editor, Git client, browser, and AI coding assistant, ForgePilot combines them into a single engineering environment.
+
+It provides:
+
+* A native terminal
+* AI coding assistance
+* Project-aware agents
+* Source control
+* Code editing
+* File navigation
+* Local application previews
+* Multiple workspaces
+* Customizable developer environments
+
+ForgePilot can work with **cloud AI providers or local models**, allowing developers to choose how their code and prompts are processed.
+
+The application is built around a native desktop architecture using **Tauri and Rust**, with a modern web-based interface.
 
 ---
 
-Terax is a lightweight open-source terminal-first AI-native development environment (ADE) built on Tauri 2 + Rust and React 19. A native PTY backend with a WebGL renderer, an agentic AI side-panel that runs against your own keys or fully local models, plus a code editor, file explorer, source control with a git graph, and a web preview pane built in. About 7-8 MB on disk. No telemetry. No account.
+## Why ForgePilot?
 
-## Screenshots
+Modern development often looks like this:
 
-<table>
-  <tr>
-    <td align="center"><img src="docs/web-preview.png" alt="Web preview" /><br/><sub>Web preview of local dev servers</sub></td>
-    <td align="center"><img src="docs/ai-workflow.png" alt="AI window" /><br/><sub>Agentic AI workflow with edit diffs in the code editor</sub></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="docs/themes.png" alt="Themes and background image" style="margin-top: 12px;"/><br/><sub>Custom themes, presets, and background images</sub></td>
-    <td align="center"><img src="docs/source-control.png" alt="Source control and git graph" style="margin-top: 12px;"/><br/><sub>Source control panel with git graph in history</sub></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><img src="docs/terminal.png" alt="Terminal" style="border-radius: 4px; margin-top: 12px;" /><br/><sub>Block-based WebGL terminal with editor-like input panel</sub></td>
-  </tr>
-</table>
-
-## Features
-
-### Terminal
-
-- xterm.js with WebGL renderer, multi-tab with background streaming
-- GPU-accelerated block-based terminal with editor-like command input
-- Native PTY backend via `portable-pty` (zsh, bash, pwsh, fish, cmd)
-- Split panels (horizontal and vertical)
-- Inline search, link detection, true-color
-- Drag files from the explorer or desktop into a terminal as shell-safe quoted paths
-- Per-tab workspace environments on Windows (Local, or any installed WSL distro)
-- Spaces restore tabs, working directories, and split layouts across launches
-
-### Code editor
-
-- CodeMirror 6 (supports all popular languages - TS/JS, Rust, Python, Go, C/C++, Java, HTML/CSS, JSON, Markdown, etc.)
-- Inline AI autocomplete with local model support
-- AI edit diffs, accept or reject hunk by hunk
-- Opt-in language server support with diagnostics, navigation, completion, formatting, and custom servers
-- Rendered Markdown plus image, video, audio, and PDF viewing
-- Vim mode
-- Built-in editor themes including Kanagawa, Catppuccin, Rosé Pine, Everforest, Dracula, Solarized, Nord, Tokyo Night, GitHub, and Xcode
-
-### Source control
-
-- Stage / unstage hunks, commit (Cmd+Enter / Ctrl+Enter), push with upstream awareness
-- Branch display including detached HEAD state
-- Git history pane with a real commit graph (lane rendering for merges and branches)
-- Commit search and filter, click through to the remote commit page
-
-### File explorer
-
-- Catppuccin icon theme
-- Fuzzy search, keyboard navigation, inline rename, context actions
-- Live updates when files change on disk
-- Attach files and selections directly to the AI side-panel
-
-### Web preview
-
-- Auto-detects local dev servers and opens them in a preview tab
-- External URL preview via a native child webview
-
-### Themes and customization
-
-- Custom themes built in-app, switch between bundled presets and your own
-- Create your own themes, share them or import from the community
-- Background images with adjustable opacity and blur
-- Editor theme is independent from the app theme
-
-### AI
-
-- **BYOK providers:** OpenAI, Anthropic, Google (Gemini), Groq, xAI (Grok), Cerebras, OpenRouter, DeepSeek, Mistral, plus any OpenAI-compatible endpoint
-- **Local / offline:** LM Studio, MLX, Ollama
-- **Agentic workflow:** plans, sub-agents, project memory via `TERAX.md`, file read / write / edit / multi-edit / grep / glob, bash with approval gating, background processes
-- **Coding-agent orchestration:** spawn Claude Code in a terminal, inspect its output, and send follow-up work through approval-gated tools
-- **Composer:** prompt snippets via `#handle`, files via `@path`, voice input, attach-to-agent from explorer or selection
-- **Custom agents** with their own system prompt and tool subset
-- **Plan mode** for multi-step work, generates and confirms before doing
-
-## Install
-
-Latest installers are on the [Releases](https://github.com/crynta/terax-ai/releases/latest) page. Terax auto-updates from there.
-
-### Windows notes
-
-- Default shell detection: `pwsh.exe` (PowerShell 7+) -> `powershell.exe` (Windows PowerShell 5.1) -> `cmd.exe`.
-- WSL is a first-class workspace environment, not a wrapped subprocess.
-
-### Linux notes
-
-- **Arch / AUR:** `yay -S terax-bin` (or `paru`, etc.). Tracks the latest release.
-- **NixOS / Nix**: use the official flake - `nix profile install github:crynta/terax-ai` (non-NixOS), or import the flake and add `inputs.terax.packages.${pkgs.system}.terax` to `environment.systemPackages` (NixOS). The `nixosModules.terax` output is also available for a simpler setup.
-- **AppImage:** needs FUSE. Without it: `./Terax_*.AppImage --appimage-extract-and-run`. On Wayland with rendering glitches, try `WEBKIT_DISABLE_DMABUF_RENDERER=1`. Otherwise the `.deb` / `.rpm` packages link against the system GTK stack and tend to be smoother.
-
-## Configure AI
-
-1. Open **Settings -> AI**.
-2. Pick a provider and paste your API key. For local inference, point Terax at your LM Studio / MLX / Ollama endpoint.
-3. Keys are written to the OS keychain via `keyring`. They never touch disk or localStorage.
-
-## Build from source
-
-**Prerequisites**
-- Rust (stable), https://rustup.rs
-- Node 22+ and [pnpm](https://pnpm.io)
-- Tauri prerequisites for your platform, https://tauri.app/start/prerequisites/
-
-**Run**
-```bash
-pnpm install
-pnpm tauri dev          # development
-pnpm tauri build        # production bundle
+```text
+Terminal
+   ↓
+Code Editor
+   ↓
+Git Client
+   ↓
+Browser
+   ↓
+AI Assistant
+   ↓
+Documentation
+   ↓
+Back to Terminal
 ```
 
-**Checks**
+ForgePilot brings these workflows together:
+
+```text
+                ┌──────────────────────┐
+                │     ForgePilot AI    │
+                └──────────┬───────────┘
+                           │
+        ┌──────────────────┼──────────────────┐
+        ↓                  ↓                  ↓
+   Code Editor          Terminal             Git
+        │                  │                  │
+        └──────────────────┼──────────────────┘
+                           ↓
+                    Project Workspace
+                           │
+                           ↓
+                    Local Web Preview
+```
+
+The goal is simple:
+
+> **Give developers one workspace where they can understand, modify, run, test, and ship their projects.**
+
+---
+
+# Core Capabilities
+
+## 🖥️ Native Development Terminal
+
+ForgePilot includes a terminal designed specifically for software development.
+
+### Terminal capabilities
+
+* Multiple terminal sessions
+* Tabbed workflows
+* Horizontal and vertical splits
+* Background process execution
+* ANSI and true-color support
+* Search within terminal output
+* Clickable URLs
+* Shell-aware command execution
+* File drag-and-drop
+* Persistent working directories
+* Cross-platform shell support
+
+Supported environments include:
+
+* Bash
+* Zsh
+* Fish
+* PowerShell
+* Windows Command Prompt
+* WSL environments
+
+The terminal is backed by a native PTY layer instead of relying on a browser-only terminal implementation.
+
+---
+
+# ✨ AI Engineering Assistant
+
+ForgePilot includes an AI workspace that understands the project you are currently working on.
+
+Instead of treating every prompt as an isolated conversation, the agent can operate against the current development environment.
+
+### Project-aware operations
+
+The AI can:
+
+* Inspect project files
+* Search the repository
+* Understand directory structure
+* Read source files
+* Modify files
+* Create new files
+* Apply targeted edits
+* Review changes
+* Execute approved commands
+* Inspect command output
+* Run background processes
+* Work through multi-step tasks
+
+Example workflow:
+
+```text
+Developer:
+"Add authentication to this application."
+
+        ↓
+
+ForgePilot Agent
+
+        ↓
+
+Analyze project structure
+        ↓
+Identify existing API architecture
+        ↓
+Inspect authentication dependencies
+        ↓
+Create implementation plan
+        ↓
+Modify backend
+        ↓
+Update frontend
+        ↓
+Run tests
+        ↓
+Show changes for review
+```
+
+---
+
+# 🧠 Agent Workflows
+
+ForgePilot supports different modes of AI-assisted development.
+
+### Ask Mode
+
+Use the AI for questions, explanations, debugging, and code exploration.
+
+### Plan Mode
+
+For larger tasks, the agent first creates an implementation plan before making changes.
+
+Example:
+
+```text
+Task
+ ↓
+Repository analysis
+ ↓
+Implementation plan
+ ↓
+Developer approval
+ ↓
+Code changes
+ ↓
+Validation
+ ↓
+Review
+```
+
+### Agent Mode
+
+The agent can use development tools to work through a task while respecting approval boundaries.
+
+Operations can include:
+
+* `read`
+* `write`
+* `edit`
+* `search`
+* `grep`
+* `glob`
+* `terminal`
+* `process`
+
+Sensitive operations can require explicit developer approval.
+
+---
+
+# 🔌 AI Provider Support
+
+ForgePilot is designed around provider flexibility.
+
+Developers can connect their own AI infrastructure instead of being locked into a single provider.
+
+Potential providers include:
+
+* OpenAI
+* Anthropic
+* Google Gemini
+* DeepSeek
+* Mistral
+* Groq
+* xAI
+* OpenRouter
+* Custom OpenAI-compatible APIs
+
+### Local AI
+
+ForgePilot can also connect to local inference servers such as:
+
+* Ollama
+* LM Studio
+* MLX
+* Other OpenAI-compatible local endpoints
+
+This makes it possible to build workflows where source code remains within the developer's chosen environment.
+
+---
+
+# 📝 Code Workspace
+
+The built-in editor provides a focused environment for working directly on project files.
+
+### Editor capabilities
+
+* JavaScript / TypeScript
+* React
+* Vue
+* Svelte
+* Python
+* Rust
+* Go
+* Java
+* C / C++
+* HTML
+* CSS
+* JSON
+* Markdown
+* YAML
+* SQL
+
+Additional capabilities include:
+
+* Syntax highlighting
+* Autocomplete
+* Diagnostics
+* Formatting
+* Code navigation
+* Search and replace
+* Multi-file editing
+* Markdown preview
+* Vim-style editing
+* AI-assisted editing
+
+---
+
+# 🔍 AI Code Changes
+
+AI-generated modifications are presented as reviewable changes rather than silently modifying the project.
+
+Developers can inspect:
+
+```text
+┌─────────────────────────────────────┐
+│ auth/service.ts                     │
+├─────────────────────────────────────┤
+│ + Added token validation            │
+│ + Added session handling            │
+│ - Removed duplicated middleware     │
+│                                     │
+│ [Accept] [Reject] [Review]          │
+└─────────────────────────────────────┘
+```
+
+This makes AI-assisted development easier to review and control.
+
+---
+
+# 🌳 Git & Source Control
+
+Git workflows are integrated directly into the development workspace.
+
+### Supported workflows
+
+* View modified files
+* Stage changes
+* Unstage changes
+* Commit changes
+* Push changes
+* Switch branches
+* Create branches
+* Inspect commit history
+* Search commits
+* Review diffs
+* Track merge history
+
+ForgePilot also provides a visual representation of repository history.
+
+```text
+main ─────●────●────●────────●
+           \          \
+            ●────●     ●────●
+            feature    release
+```
+
+---
+
+# 📁 Project Explorer
+
+The project explorer provides a fast way to navigate large repositories.
+
+Features include:
+
+* File tree navigation
+* Fuzzy search
+* Quick file opening
+* Inline rename
+* Context actions
+* Live filesystem updates
+* File attachments for AI conversations
+* Drag-and-drop support
+
+Files can be attached directly to an AI task so the agent can work with the relevant project context.
+
+---
+
+# 🌐 Local Application Preview
+
+ForgePilot can detect locally running development servers and provide a preview workspace.
+
+For example:
+
+```text
+npm run dev
+      ↓
+localhost:5173
+      ↓
+ForgePilot detects server
+      ↓
+Preview opens inside workspace
+```
+
+This is useful for frontend and full-stack development because developers can edit code, run the application, and inspect the result without constantly switching applications.
+
+---
+
+# 🧩 Workspaces
+
+A workspace represents a complete development context.
+
+A workspace can preserve:
+
+* Open files
+* Terminal sessions
+* Working directories
+* Split layouts
+* Running development servers
+* Project context
+* AI conversation context
+
+This makes it easier to return to a project exactly where you left it.
+
+---
+
+# 🎨 Developer Customization
+
+ForgePilot is designed to be highly customizable.
+
+Developers can customize:
+
+* Application theme
+* Editor theme
+* Terminal appearance
+* Font preferences
+* Backgrounds
+* Panel layout
+* Workspace configuration
+
+Themes can be created, exported, imported, and shared.
+
+---
+
+# 🔐 Privacy by Design
+
+ForgePilot does not require a mandatory developer account for local development workflows.
+
+AI credentials are stored using the operating system's secure credential storage.
+
+The architecture is designed around:
+
+* Local-first development
+* User-controlled AI providers
+* Explicit tool permissions
+* No unnecessary telemetry
+* Local model support
+* Transparent AI operations
+
+Your development environment should remain under your control.
+
+---
+
+# ⚙️ Architecture
+
+ForgePilot uses a native desktop architecture:
+
+```text
+┌─────────────────────────────────────────┐
+│              ForgePilot UI              │
+│                                         │
+│ React + TypeScript + Vite               │
+│ Editor · Explorer · Git · AI · Preview  │
+└───────────────────┬─────────────────────┘
+                    │
+                    │ Tauri IPC
+                    ↓
+┌─────────────────────────────────────────┐
+│             Native Runtime              │
+│                                         │
+│ Rust + Tauri                            │
+│                                         │
+│ PTY · Filesystem · Processes · Git      │
+└───────────────────┬─────────────────────┘
+                    │
+        ┌───────────┼───────────┐
+        ↓           ↓           ↓
+      Shell       Git       Local Apps
+```
+
+### Main technologies
+
+* Tauri 2
+* Rust
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* xterm.js
+* CodeMirror
+* Zustand
+
+---
+
+# 🚀 Installation
+
+Download the latest version from the project's releases page.
+
+### Windows
+
+ForgePilot supports:
+
+* PowerShell
+* Windows PowerShell
+* CMD
+* WSL
+
+WSL environments can be treated as development workspaces rather than simply launching them as child processes.
+
+### macOS
+
+Native desktop builds are available for supported macOS architectures.
+
+### Linux
+
+Linux packages can be distributed through formats such as:
+
+* AppImage
+* `.deb`
+* `.rpm`
+
+Distribution-specific installation methods may also be provided as the project evolves.
+
+---
+
+# 🤖 Configure AI
+
+Open:
+
+```text
+Settings
+   ↓
+AI Providers
+   ↓
+Select Provider
+   ↓
+Configure Credentials
+```
+
+For local inference:
+
+```text
+ForgePilot
+    ↓
+Local AI Endpoint
+    ↓
+Ollama / LM Studio / MLX
+    ↓
+Local Model
+```
+
+For cloud providers, developers can configure their own API credentials.
+
+---
+
+# 🛠️ Build From Source
+
+## Requirements
+
+Install:
+
+* Rust stable
+* Node.js 22+
+* pnpm
+* Tauri platform prerequisites
+
+### Install dependencies
+
+```bash
+pnpm install
+```
+
+### Development
+
+```bash
+pnpm tauri dev
+```
+
+### Production build
+
+```bash
+pnpm tauri build
+```
+
+---
+
+# ✅ Development Checks
+
+Run the frontend checks:
+
 ```bash
 pnpm lint
 pnpm check-types
 pnpm test
-cd src-tauri && cargo clippy --all-targets --locked -- -D warnings   # Rust lint (matches CI)
-cd src-tauri && cargo nextest run --locked                           # or: cargo test --locked
 ```
 
-## Tech stack
+Run Rust checks:
 
-Tauri 2, Rust, `portable-pty`, React 19, TypeScript, Vite, xterm.js, CodeMirror 6, Vercel AI SDK v6, Tailwind v4, shadcn/ui, Zustand.
+```bash
+cd src-tauri
 
-## Contributing
+cargo clippy --all-targets --locked -- -D warnings
+```
 
-Issues and PRs are welcome! Feel free to open issues, suggest features, or submit pull requests. See [CONTRIBUTING.md](CONTRIBUTING.md) and the [architecture docs](docs/README.md) for more details.
+Run Rust tests:
 
-## Code signing
+```bash
+cargo test --locked
+```
 
-<a href="https://signpath.org"><img src="https://avatars.githubusercontent.com/u/34448643?s=200&v=4" width="80" alt="SignPath" align="left" /></a>
+---
 
-Windows builds are signed with a free code signing certificate provided by [SignPath.io](https://signpath.io), certificate by the [SignPath Foundation](https://signpath.org).
+# 🧱 Project Structure
 
-<br clear="left" />
+A simplified project layout:
 
-## License
+```text
+forgepilot/
+├── src/
+│   ├── components/
+│   ├── features/
+│   ├── editor/
+│   ├── terminal/
+│   ├── explorer/
+│   ├── git/
+│   ├── ai/
+│   └── workspace/
+│
+├── src-tauri/
+│   ├── src/
+│   ├── commands/
+│   ├── services/
+│   └── main.rs
+│
+├── public/
+├── docs/
+├── package.json
+├── vite.config.ts
+└── README.md
+```
 
-Terax is licensed under the Apache-2.0 License. For more information on our dependencies, see [Apache License 2.0](LICENSE).
+---
+
+# 🗺️ Roadmap
+
+ForgePilot is being developed around a simple objective: make AI-assisted engineering feel like a natural part of the development environment.
+
+Planned areas include:
+
+* Improved multi-agent workflows
+* Better repository indexing
+* Advanced code intelligence
+* Remote development
+* Container workflows
+* Improved debugging tools
+* Test-aware agents
+* CI/CD integrations
+* Plugin architecture
+* Team workspaces
+* Advanced project memory
+* More local model integrations
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+You can contribute by:
+
+* Reporting bugs
+* Opening feature requests
+* Improving documentation
+* Submitting pull requests
+* Creating integrations
+* Improving developer tooling
+* Building extensions
+
+Before contributing, review the project's contribution guidelines and development documentation.
+
+---
+
+# 📄 License
+
+ForgePilot is released under the **Apache License 2.0**.
+
+See the `LICENSE` file for the complete license text.
+
+---
+
+<div align="center">
+
+### Build faster. Understand more. Ship with confidence.
+
+**ForgePilot — your AI-native engineering workspace.**
+
+</div>
